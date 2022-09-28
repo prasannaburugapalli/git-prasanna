@@ -1,21 +1,18 @@
-node ('master')
-
-(or)
-
-node
+nnode
  {
 
  def mavenHome = tool name: "maven3.8.6"
+ 
 stage('Checkoutcode') 
 {
 git credentialsId: 'jenkins-gitinteg', url: 'https://github.com/prasannaburugapalli/git-prasanna.git'
 }
-/*
+
 stage('Build')
  {
-sh "mvn clean package"
+ sh "${mavenHome}/bin/mvn clean package"
  }
-*/
+
  stage ('print message')
  {
   echo 'build status'
